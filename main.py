@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 
-app=FastAPI(title= 'Employee API')
+app=FastAPI(title= 'Employee Management API')
 
 employees=[
 
