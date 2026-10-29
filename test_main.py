@@ -8,7 +8,7 @@ def test_home():
 
     assert response.status_code == 200
     assert response.json()=={
-        "message": "welcome to Broken API"
+        "message": "welcome to Employee API"
     }
 
 def test_get_employee():
