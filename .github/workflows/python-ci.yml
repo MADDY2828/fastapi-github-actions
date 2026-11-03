@@ -9,6 +9,9 @@ permissions:
   contents: read   # allows the workflow to read repository contents
   packages: write  # allows the workflow to publish Container images to GHCR
 
+env:
+  IMAGE_NAME: ghcr.io/maddy2828/fastapi-github-actions
+
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -48,8 +51,8 @@ jobs:
 
       - name: Build Docker image
         run: |
-          docker build -t ghcr.io/${{ github.repository }}:latest .
+          docker build -t ${{ env.IMAGE_NAME }}:latest .
 
       - name: Push Docker image
         run: |
-          docker push ghcr.io/${{ github.repository }}:latest
+          docker push ${{ env.IMAGE_NAME }}:latest
