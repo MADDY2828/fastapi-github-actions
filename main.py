@@ -1,4 +1,5 @@
 from fastapi import FastAPI
+import os
 
 app=FastAPI(title= 'Employee Management API')
 
@@ -20,7 +21,8 @@ employees=[
 
 @app.get('/')
 def home():
-    return {'message': 'welcome to Employee API'}
+    message=os.getenv('WELCOME_MESSAGE','welcome to Employee API')
+    return {'message': message}
 
 @app.get('/employees')
 def get_employees():
